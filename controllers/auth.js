@@ -11,9 +11,10 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 
 exports.signup = (req, res, next) => {
-  const errors = validationResult(req);
+  //if there are errors during validation in routes/auth.js then express-validator puts them in the req object
+  const errors = validationResult(req); 
   if (!errors.isEmpty()) {
-    const error = new Error('Validation failed.');
+    const error = new Error('Validation failed.');//this error message will go into the error.message
     error.statusCode = 422;
     error.data = errors.array();
     throw error;

@@ -1,10 +1,11 @@
 const express = require('express');
 const { body } = require('express-validator/check');
 
-const User = require('../models/user');
+const User = require('../models/user'); //these are data models for mongoose MongoDB
 const authController = require('../controllers/auth');
 
 const router = express.Router();
+
 
 router.put(
   '/signup',
@@ -28,7 +29,7 @@ router.put(
       .not()
       .isEmpty()
   ],
-  authController.signup
+  authController.signup // 
 );
 
 router.post('/login', authController.login);
