@@ -42,7 +42,7 @@ exports.signup = (req, res, next) => {
       next(err);
     });
 };
-
+// POST auth/login
 exports.login = (req, res, next) => {
   const email = req.body.email;
   const password = req.body.password;
